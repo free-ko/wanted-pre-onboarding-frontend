@@ -1,5 +1,7 @@
-const Login = () => {
-  return <h1>로그인</h1>;
+import { Login } from "src/components/login";
+
+const LoginPage = () => {
+  return <Login />;
 };
 
-export default Login;
+export default LoginPage;

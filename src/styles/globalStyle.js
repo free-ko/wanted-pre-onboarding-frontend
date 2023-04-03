@@ -132,6 +132,8 @@ const resetCss = css`
 `;
 
 export const globalStyle = css`
+  font-family: "Poppins", sans-serif;
+
   ${resetCss};
 
   body {
@@ -144,5 +146,7 @@ export const globalStyle = css`
 
     margin: 0;
     padding: 0;
+
+    background-color: #080710;
   }
 `;
