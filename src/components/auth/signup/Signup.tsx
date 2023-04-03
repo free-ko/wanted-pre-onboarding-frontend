@@ -35,7 +35,9 @@ const Signup = () => {
           required
         />
         <GapUpDownBy $height={44} />
-        <Styled.Button onClick={handleSignupClick}>Sign Up</Styled.Button>
+        <Styled.Button data-testid="signup-button" onClick={handleSignupClick}>
+          Sign Up
+        </Styled.Button>
         <GapUpDownBy $height={18} />
         <Styled.Button onClick={handleLoginClick}>Log In</Styled.Button>
       </Styled.Wrapper>
