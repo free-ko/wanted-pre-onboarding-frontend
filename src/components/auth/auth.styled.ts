@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 
-export const CenterWrapper = styled.div`
+export const ShapeWrapper = styled.div`
   position: absolute;
   left: 50%;
   top: 50%;

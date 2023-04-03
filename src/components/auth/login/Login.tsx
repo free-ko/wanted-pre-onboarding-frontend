@@ -1,21 +1,22 @@
 import { useNavigate } from "react-router";
+
 import { GapUpDownBy } from "src/shared";
 
-import * as Styled from "./Login.styled";
+import * as Styled from "../auth.styled";
 
 const Login = () => {
   const navigate = useNavigate();
 
-  const handleClick = ({ path }: { path: string }) => {
-    navigate(path);
+  const handleSignupClick = () => {
+    navigate("/signup");
   };
 
   return (
     <>
-      <Styled.CenterWrapper>
+      <Styled.ShapeWrapper>
         <Styled.Shape />
         <Styled.Shape />
-      </Styled.CenterWrapper>
+      </Styled.ShapeWrapper>
 
       <Styled.Wrapper>
         <Styled.Title>Login Here</Styled.Title>
@@ -33,9 +34,9 @@ const Login = () => {
           required
         />
         <GapUpDownBy $height={44} />
-        <Styled.Button>Log In</Styled.Button>
+        <Styled.Button data-testid="signin-button">Log In</Styled.Button>
         <GapUpDownBy $height={18} />
-        <Styled.Button onClick={() => handleClick({ path: "signup" })}>Sign Up</Styled.Button>
+        <Styled.Button onClick={handleSignupClick}>Sign Up</Styled.Button>
       </Styled.Wrapper>
     </>
   );
