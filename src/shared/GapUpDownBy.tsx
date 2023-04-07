@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 
-import { BREAK_POINT, mediaQuery } from "./mediaQuery";
+import { BREAK_POINT, mediaQuery } from "./MediaQuery";
 
 type HeightsProps = {
   $height: [number, number?, number?] | number;

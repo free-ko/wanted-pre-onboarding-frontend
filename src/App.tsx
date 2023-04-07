@@ -1,14 +1,17 @@
-import { Routes, Route } from "react-router-dom";
+import { Global } from "@emotion/react";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
 
-import { LoginPage, SignupPage } from "./pages";
+import { Router } from "src/router";
+import { globalStyle } from "src/styles";
 
 const App = () => {
   return (
-    <Routes>
-      <Route path="/" element={<LoginPage />} />
-      <Route path="/signin" element={<LoginPage />} />
-      <Route path="/signup" element={<SignupPage />} />
-    </Routes>
+    <>
+      <Global styles={globalStyle} />
+      <Router />
+      <ToastContainer />
+    </>
   );
 };
 

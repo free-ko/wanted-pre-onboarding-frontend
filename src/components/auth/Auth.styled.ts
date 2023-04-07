@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { Link } from "react-router-dom";
 
 export const ShapeWrapper = styled.div`
   position: absolute;
@@ -33,12 +34,12 @@ export const Shape = styled.div`
   }
 `;
 
-export const Wrapper = styled.form`
+export const FormWrapper = styled.form`
   display: flex;
   flex-direction: column;
 
   width: 400px;
-  height: 440px;
+  height: auto;
   padding: 50px 35px;
 
   border-radius: 10px;
@@ -57,41 +58,8 @@ export const Title = styled.h3`
   color: #fff;
 `;
 
-export const LabelText = styled.label`
-  font-size: 24px;
-  font-weight: 500;
-  color: #fff;
-`;
-
-export const Input = styled.input`
-  height: 50px;
-  padding: 0 10px;
-
-  font-size: 14px;
-  font-weight: 300;
-
-  border-radius: 3px;
-  background-color: rgba(255, 255, 255, 0.07);
-
-  outline: none;
-  border: none;
-  color: #fff;
-
-  ::placeholder {
-    color: #e5e5e5;
-  }
-`;
-
-export const Button = styled.button`
-  width: 100%;
-  padding: 15px 0;
-
-  font-size: 18px;
-  font-weight: 600;
-
-  border: none;
-  border-radius: 5px;
-  background-color: #fff;
-  color: #080710;
-  cursor: pointer;
+export const LinkText = styled(Link)`
+  text-align: right;
+  color: white;
+  text-decoration: none;
 `;
