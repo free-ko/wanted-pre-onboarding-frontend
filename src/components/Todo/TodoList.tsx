@@ -13,10 +13,10 @@ const TodoList = () => {
         <p>Loading...</p>
       ) : (
         todos?.map((todo: Todo) => (
-          <>
+          <div key={todo.id}>
             <GapUpDownBy $height={18} />
-            <TodoItem key={todo.id} todo={todo} />
-          </>
+            <TodoItem todo={todo} />
+          </div>
         ))
       )}
     </>

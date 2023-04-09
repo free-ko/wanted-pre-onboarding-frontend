@@ -24,7 +24,6 @@ type Props = {
   dataTestId: string;
 };
 const Button = ({ text, disabled = false, dataTestId }: Props) => {
-  console.log(disabled);
   return (
     <Styled.ButtonWrapper $disabled={disabled} data-testid={dataTestId}>
       {text}
