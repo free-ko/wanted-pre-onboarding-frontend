@@ -1,9 +1,10 @@
+import { useNavigate } from "react-router";
 import React, { useEffect, useMemo } from "react";
 
 import { useGetTodo } from "src/hooks";
 import { GapUpDownBy } from "src/shared";
-import { TodoContext, TodoInput, TodoList } from "src/components";
 
+import { TodoContext, TodoInput, TodoList } from "src/components";
 import * as Styled from "./Todo.styled";
 
 const RoundShape = () => {
@@ -16,11 +17,18 @@ const RoundShape = () => {
 };
 
 const TodoPage = () => {
+  const navigate = useNavigate();
   const [isLoading, todos, getTodos] = useGetTodo();
   const value = useMemo(() => ({ isLoading, todos, getTodos }), [isLoading, todos, getTodos]);
 
   useEffect(() => {
-    void getTodos();
+    const token = localStorage.getItem("token");
+
+    if (token) {
+      void getTodos();
+    } else {
+      navigate("/");
+    }
   }, [getTodos]);
 
   return (
