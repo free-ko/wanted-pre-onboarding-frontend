@@ -31,6 +31,7 @@ const signup = async ({ email, password }: Props) => {
   } catch (error) {
     if (error instanceof AxiosError) {
       toast(error.response?.data.message);
+
       return error.response;
     }
     console.log(error);

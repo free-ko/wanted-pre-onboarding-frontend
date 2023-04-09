@@ -11,7 +11,7 @@ const ButtonWrapper = styled.button<{ $disabled: boolean }>`
   border-radius: 5px;
   background-color: #fff;
   color: #080710;
-  cursor: ${({ $disabled }) => ($disabled ? "not-allowed" : "cursor")};
+  cursor: ${({ $disabled }) => ($disabled ? "not-allowed" : "pointer")};
 `;
 
 const Styled = {
@@ -24,6 +24,7 @@ type Props = {
   dataTestId: string;
 };
 const Button = ({ text, disabled = false, dataTestId }: Props) => {
+  console.log(disabled);
   return (
     <Styled.ButtonWrapper $disabled={disabled} data-testid={dataTestId}>
       {text}
