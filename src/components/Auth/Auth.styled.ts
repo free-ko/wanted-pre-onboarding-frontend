@@ -59,7 +59,7 @@ export const Title = styled.h3`
 `;
 
 export const LinkText = styled(Link)`
-  text-align: right;
+  width: max-content;
   color: white;
   text-decoration: none;
 `;

@@ -7,6 +7,7 @@ import { validator, ValidationError } from "src/utils";
 import { Button, ErrorMessage, GapUpDownBy, Input } from "src/shared";
 
 import * as Styled from "../Auth.styled";
+import { toast } from "react-toastify";
 
 const RoundShape = () => {
   return (
@@ -33,7 +34,7 @@ const SignupForm = () => {
       ![isValidEmail.value, isValidPassword.value, isValidPasswordCheck.value].every(
         (valid) => valid
       ),
-    [isValidEmail.value, isValidPassword.value]
+    [isValidEmail.value, isValidPassword.value, isValidPasswordCheck.value]
   );
 
   const handleSubmit = useCallback(
@@ -44,15 +45,14 @@ const SignupForm = () => {
         return setError(ValidationError.PASSWORD_CHECK_ERROR);
       }
 
-      const res = await authAPI.signup({ email: email.value, password: password.value });
-
-      if (res?.status === 400) {
-        return setError(res.data.message);
-      }
-
-      if (res?.status === 201) {
-        return navigate("/signin");
-      }
+      authAPI
+        .signup({ email: email.value, password: password.value })
+        .then(() => {
+          return navigate("/signin");
+        })
+        .catch((error) => {
+          toast(error.response.data.message);
+        });
     },
 
     [email.value, password.value, passwordCheck.value, navigate]
