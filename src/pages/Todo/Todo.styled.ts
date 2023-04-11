@@ -56,3 +56,13 @@ export const Title = styled.h3`
   letter-spacing: 0.5px;
   color: #fff;
 `;
+
+export const Text = styled.span`
+  font-size: 16px;
+  font-weight: 500;
+  text-align: right;
+  letter-spacing: 0.5px;
+  color: #fff;
+
+  cursor: pointer;
+`;

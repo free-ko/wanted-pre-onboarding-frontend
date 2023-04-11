@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router";
-import React, { useEffect, useMemo } from "react";
+import React, { useCallback, useEffect, useMemo } from "react";
 
 import { useGetTodo } from "src/hooks";
 import { GapUpDownBy } from "src/shared";
@@ -31,12 +31,20 @@ const TodoPage = () => {
     }
   }, [getTodos]);
 
+  const handleLogout = useCallback(() => {
+    if (!window.confirm("로그아웃 하시겠습니까?")) return;
+
+    localStorage.removeItem("token");
+    window.location.href = "/signin";
+  }, []);
+
   return (
     <TodoContext.Provider value={value}>
       <RoundShape />
 
       <Styled.Wrapper>
         <Styled.Title>Todo</Styled.Title>
+        <Styled.Text onClick={handleLogout}>Log out</Styled.Text>
         <GapUpDownBy $height={30} />
         <TodoInput />
         <TodoList />
